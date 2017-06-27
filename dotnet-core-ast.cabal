@@ -1,0 +1,28 @@
+name:                dotnet-core-ast
+version:             0.1
+synopsis:            netcore lazy AST
+license:             BSD3
+license-file:        LICENSE
+category:            Language
+build-type:          Simple
+cabal-version:       >=1.6
+
+extra-source-files:
+  src/Language/CSharp/Lexer.x
+
+Library
+  hs-source-dirs: . 
+  build-tools: alex
+
+  build-depends:
+    derive, array, base == 4.*, bytestring, directory,
+    filepath, mtl, parsec, pretty, process, text
+
+  exposed-modules:
+    Language.Net.Core.CSharp.Lexer
+    Language.Net.Core.CSharp.Parser
+    Language.Net.Core.CSharp.Syntax
+    Language.Net.Core.CSharp.Tokens
+
+  ghc-options: -funbox-strict-fields
+               -fno-warn-unused-do-bind -Wall
